@@ -22,7 +22,7 @@ export const useWebSocketStore = defineStore({
     },
     _OnMessage(message: any): void {
       const body: any = JSON.parse(message.data)
-      bus.emit('SPAWN_NOTIFICATION', { message: body, type: 'info' })
+
       bus.emit('TAKE_MESSAGE', body)
     },
     _OnClose(event: any): void {
