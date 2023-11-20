@@ -8,12 +8,11 @@ export const useWebSocketStore = defineStore({
     socket: null as WebSocket | null
   }),
   actions: {
-    Init(): void {},
+    Init(): void { },
     Connect(): void {
-        // console.log(process)
-      const url: string = 'ws://192.168.102.1:8080'
-      console.log(url)
-      this.socket = new WebSocket(url)
+      const WEBSOCKET_ADDRESS = import.meta.env.VITE_WEBSOCKET_ADDRESS;
+
+      this.socket = new WebSocket(WEBSOCKET_ADDRESS)
 
       this.socket.addEventListener('message', this._OnMessage)
       this.socket.addEventListener('open', this._OnOpen)
