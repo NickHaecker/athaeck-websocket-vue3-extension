@@ -9,6 +9,7 @@
   "author": "Nick Häcker",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "mitt": "^3.0.1"
   }
 }
