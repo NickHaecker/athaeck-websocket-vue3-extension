@@ -26,12 +26,17 @@ export const useWebSocketStore = defineStore({
     },
     _OnClose(event: any): void {
       console.log(event)
+      bus.emit("SOCKET_CLOSED")
+    
+      this.Connect()
     },
     _OnOpen(event: any): void {
       console.log(event)
     },
     _OnError(event: any): void {
       console.log(event)
+      bus.emit("SOCKED_ERROR")
+      this.Connect()
     },
     SendEvent(event: SendEvent): void {
       if (this.socket && this.socket.readyState === WebSocket.OPEN) {
