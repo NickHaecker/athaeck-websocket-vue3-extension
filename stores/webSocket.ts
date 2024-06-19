@@ -32,6 +32,7 @@ export const useWebSocketStore = defineStore({
     },
     _OnOpen(event: any): void {
       console.log(event)
+      bus.emit("SOCKET_OPENED")
     },
     _OnError(event: any): void {
       console.log(event)
